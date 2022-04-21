@@ -50,7 +50,23 @@ class Tree {
                 }
             };return searchTree(node);
         }
-   }
+   };
+   find = (num) => {
+       let current = this.root;
+       while(current.data !== num){
+           if(num < current.data){
+               current = current.leftChild;
+           }else{
+               current= current.rightChild;
+           }
+           if(current === null){
+               return null;
+           }
+       }
+       return current;
+   };
+
+
 }
 
 const bst = new Tree();
@@ -64,3 +80,4 @@ bst.insert(1);
 
 console.log(bst.root);
 bst.toString();
+console.log(bst.find(3));
